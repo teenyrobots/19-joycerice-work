@@ -149,14 +149,17 @@
 
     $(document).ready(function(){
         var projectSlug = getParameterByName('project');
+        console.log(projectSlug);
 
         console.log("okay here we go");
 
         $.getJSON('projects.json', function(data) {
             console.log("i'm looking for the database");
             var allProjects = data.projects;
+            console.log("i found the projects");
 
             for (var x=0; x < allProjects.length; x++) {
+                console.log(allProjects.length);
                 if (allProjects[x].slug === projectSlug) {
                     console.log("i'm searching the database");
                     var currentProject = allProjects[x];
