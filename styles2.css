@@ -7,6 +7,9 @@
     box-sizing: border-box;
 }
 
+.hide {
+    display: none;
+}
 
 html {
     height: 100%;
@@ -35,10 +38,11 @@ a:hover {
 
 header {
     width: 95%;
+    max-width: 1000px;
     display: flex;
     margin: auto;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 1em;
     color: #707070;
 }
@@ -87,11 +91,11 @@ header a:hover {
 }
 
 figcaption {
-    /*font-style: italic;*/
+    font-style: italic;
     font-size: .75em;
     text-align: left;
     color: #707070;
-    margin-left: .5em;
+    /* margin-left: .5em; */
 }
 
 hr {
@@ -192,7 +196,7 @@ input[type=submit] {
 }
 
 .newFooter div img {
-    width: 35px;
+    width: 25px;
     margin: 1em 2em;
     opacity: .5;
 }
@@ -290,6 +294,11 @@ section {
     justify-content: space-between;
 }
 
+.about {
+    max-width: 800px;
+    margin: auto;
+}
+
 .content div h1 {
     margin: auto;
     width: 94%;
@@ -298,12 +307,13 @@ section {
 }
 
 .content hr, .content #design, .content #comicsh2 {
-    width: 94%;
+    width: 100%;
     display: block;
     margin: 1em auto;
     text-transform: uppercase;
     font-weight: 200;
     font-size: 1.25rem;
+    text-align: center;
 }
 
 .thumbs {
@@ -336,22 +346,24 @@ section {
 
 /*intro.html*/
 #intro {
-    width: 95%;
-    max-width: 1000px;
     margin-top: 2em;
     text-align: left;
 }
 
-#intro div, img {
+#intro div {
     display: block;
     margin: 1em auto;
-    width: 375px;
-    max-width: 100%;
+    width: 95%;
+    max-width: 375px;
 }
 
 #intro img {
     width: 550px;
-    margin-left: 0;
+    /* margin-left: 0; */
+}
+
+#intro figure {
+    margin: 0 auto 2rem;
 }
 
 #intro h1, p {
@@ -362,11 +374,7 @@ section {
 /* about.html */
 .biopic {
     width: 300px;
-    padding-top: .5em;
-    padding-bottom: 2em;
-    margin: 0;
-    margin-top: 1.5em;
-    margin-right: 2em;
+    margin: 0 auto 1rem;
 }
 
 
@@ -509,6 +517,7 @@ section {
 .copy {
     width: 450px;
     max-width: 95%;
+    margin: 0 auto;
     /*padding-right: 2em;*/
     /*margin-right: 2em;*/
 }
@@ -668,10 +677,6 @@ section {
 
     header li {
         margin: 1em;
-    }
-
-    #intro figure {
-        margin: auto;
     }
 }
 
