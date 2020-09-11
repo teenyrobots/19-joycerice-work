@@ -41,7 +41,7 @@
     {
       "slug": "cca",
       "title": "Digital Comics Anthology",
-      "type": "Web app",
+      "type": "Website",
       "button": "View the anthology",
       "link": "http://comics.cca.edu/",
       "client": "California College of the Arts",
@@ -61,7 +61,7 @@
     {
       "slug": "symbolia",
       "title": "Symbolia Magazine",
-      "type": "Publication",
+      "type": "Digital Publication",
       "button": "Read Symbolia",
       "link": "https://itunes.apple.com/us/app/symbolia-magazine/id553786080?mt=8",
       "client": null,
