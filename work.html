@@ -59,29 +59,30 @@
                 <a href="https://www.instagram.com/teenyrobots/" target="_blank"><img src="assets/icons/grams.png" alt="instagram"></a>
                 <a href="https://twitter.com/teenyrobots" target="_blank"><img src="assets/icons/twitter.png" alt="twitter"></a>
                 <a href="https://github.com/teenyrobots" target="_blank"><img src="assets/icons/github.png" alt="github"></a>
-                <a href="mailto:joycer@teenyrobots.net?subject=Let's work together!" target="_blank"><img src="assets/icons/mail.png" alt="mail"></a>
+                <a href="mailto:hello@joycerice.work?subject=Let's work together!" target="_blank"><img src="assets/icons/mail.png" alt="mail"></a>
             </div>
         </div>
 
         <script
-                src='https://code.jquery.com/jquery-3.3.1.min.js'
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-                crossorigin="anonymous"></script>
+			  src="https://code.jquery.com/jquery-3.5.1.js"
+			  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+			  crossorigin="anonymous"></script>
 
         <script>
 
             function makeCard(project) {
-                var title = project.title,
+                console.log("i'm making the project tiles!");
+                let title = project.title,
                     type = project.type,
                     thumb = "projects/_thumbs/" + project.slug + ".jpg",
                     projectURL = "/project.html?project=" + project.slug;
-                var projectDiv = $("<div class='projectThumb'><a href='" + projectURL + "'><h2>"+ title +"</h2><h3>"+ type +"</h3><img src='"+ thumb +"'></a></div>");
+                let projectDiv = $("<div class='projectThumb'><a href='" + projectURL + "'><h2>"+ title +"</h2><h3>"+ type +"</h3><img src='"+ thumb +"'></a></div>");
                 return projectDiv;
             }
 
 
             $(document).ready(function(){
-                var errorDiv = true;
+                let errorDiv = true;
                 $.getJSON('projects.json', function(data) {
                     data.projects.map(function(project){
                         var projectCard = makeCard(project);

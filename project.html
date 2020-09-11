@@ -79,7 +79,7 @@
           <a href="https://www.instagram.com/teenyrobots/" target="_blank"><img src="assets/icons/grams.png" alt="instagram"></a>
           <a href="https://twitter.com/teenyrobots" target="_blank"><img src="assets/icons/twitter.png" alt="twitter"></a>
           <a href="https://github.com/teenyrobots" target="_blank"><img src="assets/icons/github.png" alt="github"></a>
-          <a href="mailto:joycer@teenyrobots.net?subject=Let's work together!" target="_blank"><img src="assets/icons/mail.png" alt="mail"></a>
+          <a href="mailto:hello@joycerice.work?subject=Let's work together!" target="_blank"><img src="assets/icons/mail.png" alt="mail"></a>
       </div>
   </div>
 
@@ -88,15 +88,16 @@
 <!--ALRIGHT THAT'S IT-->
 
 <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+			  src="https://code.jquery.com/jquery-3.5.1.js"
+			  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+			  crossorigin="anonymous"></script>
 <script src="sl/dist/simpleLightbox.js" type="text/javascript" charset="utf-8"></script>
 
 <script>
 
     function getParameterByName(name, url) {
         if (!url) url = window.location.href;
+        console.log(url);
         name = name.replace(/[\[\]]/g, "\\$&");
         var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
             results = regex.exec(url);
@@ -149,18 +150,22 @@
     $(document).ready(function(){
         var projectSlug = getParameterByName('project');
 
+        console.log("okay here we go");
+
         $.getJSON('projects.json', function(data) {
+            console.log("i'm looking for the database");
             var allProjects = data.projects;
 
             for (var x=0; x < allProjects.length; x++) {
                 if (allProjects[x].slug === projectSlug) {
+                    console.log("i'm searching the database");
                     var currentProject = allProjects[x];
                     var slug = currentProject.slug;
                     break;
                 }
             }
             if (currentProject) {
-                makeProject(currentProject)
+                makeProject(currentProject);
             }
         })
     })
