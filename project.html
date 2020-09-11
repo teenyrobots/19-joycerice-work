@@ -91,6 +91,7 @@
 			  src="https://code.jquery.com/jquery-3.5.1.js"
 			  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 			  crossorigin="anonymous"></script>
+
 <script src="sl/dist/simpleLightbox.js" type="text/javascript" charset="utf-8"></script>
 
 <script>
@@ -103,6 +104,7 @@
             results = regex.exec(url);
         if (!results) return null;
         if (!results[2]) return '';
+        console.log(decodeURIComponent(results[2].replace(/\+/g, " ")));
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
 
@@ -113,9 +115,9 @@
         $('#projectType').append(project.type);
         $('#projectLink').attr('href', project.link);
         if (project.button) {
-          $('#projectButton').append(project.button)
+          $('#projectButton').append(project.button);
         } else {
-          console.log('no project button')
+          console.log('no project button');
           $('#projectButton').hide();
         }
         if (project.client) $('#projectLink').after('<h3>Client:</h3><p>'+project.client+'</p>');
@@ -130,7 +132,7 @@
             $('#projectCopy').append('<h3>Selected Coverage:</h3><ul id="coverageList"></ul>');
             for (var x=0; x<coverage.length; x++) {
                 console.log(coverage[x].outlet);
-                $('#coverageList').append('<li><img src="assets/logos/' + coverage[x].outlet + '.png"><a href="' + coverage[x].link + '" target="_blank">' + coverage[x].title + '</a></li>\n')
+                $('#coverageList').append('<li><img src="assets/logos/' + coverage[x].outlet + '.png"><a href="' + coverage[x].link + '" target="_blank">' + coverage[x].title + '</a></li>\n');
             }
         }
 
@@ -139,9 +141,9 @@
             var allImages = project.images;
             $('#projectCopy').after('<div class="thumbs" id="gallery"></div>');
             $('#gallery').append('<h4>Gallery</h4>');
-            for (var x = 0; x < allImages.length; x++) {
-                console.log(allImages[x]);
-                $('#gallery').append('<a href="projects/' + project.slug + '/images/' + x + '.jpg" title="' + allImages[x] + '"><img src="projects/' + project.slug + '/thumbs/' + x + '.jpg"></a>');
+            for (var j = 0; j < allImages.length; j++) {
+                console.log(allImages[j]);
+                $('#gallery').append('<a href="projects/' + project.slug + '/images/' + j + '.jpg" title="' + allImages[j] + '"><img src="projects/' + project.slug + '/thumbs/' + j + '.jpg"></a>');
             }
             $('#gallery a').simpleLightbox();
         }
@@ -158,20 +160,24 @@
             var allProjects = data.projects;
             console.log("i found the projects");
 
+            let currentProject;
+
             for (var x=0; x < allProjects.length; x++) {
                 console.log(allProjects.length);
                 if (allProjects[x].slug === projectSlug) {
                     console.log("i'm searching the database");
-                    var currentProject = allProjects[x];
-                    var slug = currentProject.slug;
+                    currentProject = allProjects[x];
                     break;
                 }
             }
+
+            console.log(currentProject);
+
             if (currentProject) {
                 makeProject(currentProject);
             }
-        })
-    })
+        });
+    });
 
 </script>
 

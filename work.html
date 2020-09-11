@@ -71,7 +71,6 @@
         <script>
 
             function makeCard(project) {
-                console.log("i'm making the project tiles!");
                 let title = project.title,
                     type = project.type,
                     thumb = "projects/_thumbs/" + project.slug + ".jpg",
@@ -88,10 +87,10 @@
                         var projectCard = makeCard(project);
                         $("#allProjects").append(projectCard);
                         errorDiv = false;
-                    })
+                    });
                     if (errorDiv) $('#wrong').show();
-                })
-            })
+                });
+            });
 
         </script>
       </div>
